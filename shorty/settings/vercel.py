@@ -14,10 +14,6 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', "").split(';')
 if not ALLOWED_HOSTS:
     raise ImproperlyConfigured('DJANGO_ALLOWED_HOSTS is not set.')
 
-CSRF_TRUSTED_ORIGINS = os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', "").split(';')
-if not CSRF_TRUSTED_ORIGINS:
-    raise ImproperlyConfigured('DJANGO_CSRF_TRUSTED_ORIGINS is not set.')
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
