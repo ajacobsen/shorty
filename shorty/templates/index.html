@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Shorty URL Shortener</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        {{ form.long_url }}
+        <input type="submit" value="Shorten URL">
+    </form>
+    {% if result %}
+        <div><a target="_blank" href="http://{{ request.get_host }}/{{ result }}">{{ request.get_host }}/{{ result }}</a></div>
+    {% endif %}
+
+</div>
+{% endblock body %}
